@@ -2,10 +2,7 @@
 
 Ruby 2.5.1
 Rails 5.2.0
-Postgres
-
-To init database: rake db:create
-To run tests: rspec spec
+Postgres Database
 
 Requirements:
 
