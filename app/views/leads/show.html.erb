@@ -15,5 +15,10 @@
   <%= @lead.postal_code %>
 </p>
 
+<p>
+  <strong>Phone number:</strong>
+  <%= @lead.phone_number.number %>
+</p>
+
 <%= link_to 'Edit', edit_lead_path(@lead) %> |
 <%= link_to 'Back', leads_path %>

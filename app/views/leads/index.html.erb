@@ -2,12 +2,17 @@
 
 <h1>Leads</h1>
 
+<p>
+  <%= link_to 'Logout Admin', logout_path %>
+</p>
+
 <table>
   <thead>
     <tr>
       <th>Name</th>
       <th>Email</th>
       <th>Postal code</th>
+      <th>Phone number</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +23,7 @@
         <td><%= lead.name %></td>
         <td><%= lead.email %></td>
         <td><%= lead.postal_code %></td>
+        <td><%= lead.phone_number.number %></td>
         <td><%= link_to 'Show', lead %></td>
         <td><%= link_to 'Edit', edit_lead_path(lead) %></td>
         <td><%= link_to 'Destroy', lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,5 +33,4 @@
 </table>
 
 <br>
-
 <%= link_to 'New Lead', new_lead_path %>

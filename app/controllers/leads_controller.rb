@@ -14,6 +14,7 @@ class LeadsController < ApplicationController
   # GET /leads/new
   def new
     @lead = Lead.new
+    @lead.phone_number = PhoneNumber.new
   end
   
   # GET /leads/1/edit
@@ -23,11 +24,16 @@ class LeadsController < ApplicationController
   # POST /leads
   def create
     @lead = Lead.new(lead_params)
-    @lead.phone_number = PhoneNumber.new(lead_params[:phone_number_attributes])
 
     respond_to do |format|
       if @lead.save
-        format.html { redirect_to root_path, notice: 'Thanks! Your information was successfully submitted.' }
+        format.html do
+          if current_user
+            redirect_to leads_path, notice: 'Lead was successfully created.'
+          else
+            redirect_to root_path, notice: 'Thanks! Your information was successfully submitted.'
+          end
+        end
       else
         format.html { render :new }
       end
@@ -61,7 +67,7 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-      params.require(:lead).permit(:name, :email, :postal_code)
+      params.require(:lead).permit(:name, :email, :postal_code, phone_number_attributes: [:id, :number])
     end
 
     def check_admin
