@@ -65,6 +65,6 @@ class LeadsController < ApplicationController
     end
 
     def check_admin
-      redirect_to root_path
+      redirect_to root_path unless current_user
     end
 end

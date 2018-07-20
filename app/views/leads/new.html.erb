@@ -3,3 +3,9 @@
 <p id="notice"><%= notice %></p>
 
 <%= render 'form', lead: @lead %>
+
+<% if current_user %>
+  <%= link_to "Back to Admin's List", leads_path %>
+<% else %>
+  <%= link_to "Admin's login", admin_path %>
+<% end %>
