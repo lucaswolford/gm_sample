@@ -28,7 +28,7 @@
   
   <div class="field">
     <%= form.fields_for :phone_number, lead.phone_number do |phone_number_form| %>
-      <label> Phone Number </label>
+      <%= phone_number_form.label :number, "Phone number" %>
       <%= phone_number_form.text_field :number %>
     <% end %>
   </div>
