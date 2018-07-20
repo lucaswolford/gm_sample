@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby 2.5.1
+Rails 5.2.0
+Postgres
 
-Things you may want to cover:
+To init database: rake db:create
+To run tests: rspec spec
 
-* Ruby version
+Requirements:
 
-* System dependencies
+1. A lead form consisting of the following fields: name, email, phone, and postal code. This form should take the submitted data and store it to the database. The phone number should be stored in its own table, separate from the rest of the submitted information.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2. An admin backend behind a login form, which lists all leads that have been submitted. It should also allow an admin to delete submissions from the database.
